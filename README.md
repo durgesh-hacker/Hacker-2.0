@@ -4,48 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Simple Antivirus UI</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
-    <h1>Antivirus Scanner</h1>
-    <p>Status: <span class="status">Idle</span></p>
-    <div class="buttons">
-      <button onclick="fakeScan()">Start Scan</button>
-      <button>Update</button>
-      <button>Settings</button>
-    </div>
-    <div class="log">
-      <h2>Scan Log</h2>
-      <ul id="scan-log"></ul>
-    </div>
-  </div>
-
-  <script>
-    function fakeScan() {
-      document.querySelector(".status").textContent = "Scanning...";
-      const log = document.getElementById("scan-log");
-      log.innerHTML = "";
-      const fakeFiles = ["C:/Windows/System32", "C:/Program Files", "D:/Games", "C:/Users/You/Documents"];
-      fakeFiles.forEach((file, index) => {
-        setTimeout(() => {
-          const li = document.createElement("li");
-          li.textContent = `Scanned: ${file} - No Threats Found`;
-          log.appendChild(li);
-          if (index === fakeFiles.length - 1) {
-            document.querySelector(".status").textContent = "Scan Complete";
-          }
-        }, index * 1000);
-      });
-    }
-  </script>
-</body>
-</html>
-
-
-
-css code:- 
-
+  <style>
+    
 body {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
@@ -110,6 +70,48 @@ button:hover {
   margin: 5px 0;
   font-size: 14px;
 }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Antivirus Scanner</h1>
+    <p>Status: <span class="status">Idle</span></p>
+    <div class="buttons">
+      <button onclick="fakeScan()">Start Scan</button>
+      <button>Update</button>
+      <button>Settings</button>
+    </div>
+    <div class="log">
+      <h2>Scan Log</h2>
+      <ul id="scan-log"></ul>
+    </div>
+  </div>
+
+  <script>
+    function fakeScan() {
+      document.querySelector(".status").textContent = "Scanning...";
+      const log = document.getElementById("scan-log");
+      log.innerHTML = "";
+      const fakeFiles = ["C:/Windows/System32", "C:/Program Files", "D:/Games", "C:/Users/You/Documents"];
+      fakeFiles.forEach((file, index) => {
+        setTimeout(() => {
+          const li = document.createElement("li");
+          li.textContent = `Scanned: ${file} - No Threats Found`;
+          log.appendChild(li);
+          if (index === fakeFiles.length - 1) {
+            document.querySelector(".status").textContent = "Scan Complete";
+          }
+        }, index * 1000);
+      });
+    }
+  </script>
+</body>
+</html>
+
+
+
+
 
 
 
